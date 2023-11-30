@@ -23,7 +23,7 @@ defaultEnableGallery=false
 defaultHeaderMessage=""
 defaultFooterMessage=""
 defaultLogLevel=2
-defaultLogFile="$(basename "${0}" .sh).log"
+defaultLogFile="/tmp/$(basename "${0}" .sh).log"
 
 workingDirectory="$(dirname "${0}")"
 logLevel="${defaultLogLevel}"
@@ -235,7 +235,7 @@ then
     logFile="${paramLogFile}"
 elif [ -z "${logFile}" ]
 then
-    logFile="${workingDirectory}/${defaultLogFile}"
+    logFile="${defaultLogFile}"
 fi
 
 # enabling strict mode
@@ -298,6 +298,7 @@ while read -r file; do
     sed -i "s|{FOLDERNAME}|${installWebPath}|g" "${file}"
     sed -i "s|{HEADER-MESSAGE}|${headerMessage}|g" "${file}"
     sed -i "s|{FOOTER-MESSAGE}|${footerMessage}|g" "${file}"
+    sed -i "s|{CUST-FOOTER}|${installWebPath}/theme/footer-custom.html|g" "${file}"
 done <<< "${files}"
 
 log 2 "- syncing filesystem"

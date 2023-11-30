@@ -225,6 +225,19 @@ tr.parent a[href^="/"] {
 .footer {
   text-align: center;
   font-size: .75em;
+  align-content: center;
+}
+
+
+/*------------------------------------*\
+    Footer Readme
+\*------------------------------------*/
+
+.readme {
+  text-align: center;
+  font-size: .75em;
+  color: #FFF;
+  margin-top: 0;
 }
 
 /*------------------------------------*\
