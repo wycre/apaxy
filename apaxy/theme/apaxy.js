@@ -92,9 +92,9 @@ arr.forEach(function(value){
         url = url + '/' + value;
         if(value != ''){
             if(arr.length == cont+1)
-                bread += "<li class='active'>"+decodeURI(value)+"</li>";
+                bread += "<li class='active'>"+decodeURIComponent(value)+"</li>";
             else
-                bread += "<li><a href='"+url+"'>"+decodeURI(value)+"</a></li>";
+                bread += "<li><a href='"+url+"'>"+decodeURIComponent(value)+"</a></li>";
         }
         cont++;
 });
